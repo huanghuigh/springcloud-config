@@ -1,1 +1,20 @@
-zheshi dev
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:
+      # Config 客户端配置
+      label: master # 分支名
+      name: config  # 配置文件名
+      profile: dev  # 读取后缀名称  三者和加 为 master分支下的config-dev.yml
+      uri: http:localhost:3344 #  配置中心地址
+
+# 服务注册进入Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
